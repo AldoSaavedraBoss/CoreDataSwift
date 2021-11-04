@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="102" id="KGk-i7-Jjw" customClass="ContactoTableViewCell" customModule="CoreDataContactos" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="451" height="102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="451" height="102"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uw4-Hu-FRa">
+                        <rect key="frame" x="0.0" y="0.0" width="451" height="100.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Q17-GR-mf7">
+                                <rect key="frame" x="0.0" y="1.5" width="100" height="97.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="IZq-4k-4o7"/>
+                                    <constraint firstAttribute="height" constant="100" id="tyM-vy-3Lc"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="GUi-u9-Utx">
+                                <rect key="frame" x="100" y="0.0" width="351" height="100.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwH-KX-O46">
+                                        <rect key="frame" x="10" y="0.0" width="150" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UA7-Tt-qW5"/>
+                                            <constraint firstAttribute="width" constant="150" id="Zh9-eb-Wx1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telefono" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEv-HB-yAm">
+                                        <rect key="frame" x="10" y="50.5" width="200" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="k0e-cf-KdQ"/>
+                                            <constraint firstAttribute="height" constant="50" id="lgF-8k-oRs"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qwH-KX-O46" firstAttribute="leading" secondItem="GUi-u9-Utx" secondAttribute="leading" constant="10" id="LXk-X2-SBX"/>
+                                    <constraint firstItem="vEv-HB-yAm" firstAttribute="leading" secondItem="GUi-u9-Utx" secondAttribute="leading" constant="10" id="mmd-IV-8Tc"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="GUi-u9-Utx" firstAttribute="leading" secondItem="Q17-GR-mf7" secondAttribute="trailing" id="6Y6-63-45c"/>
+                            <constraint firstItem="GUi-u9-Utx" firstAttribute="top" secondItem="Uw4-Hu-FRa" secondAttribute="top" id="FOB-4H-YZW"/>
+                            <constraint firstAttribute="trailing" secondItem="GUi-u9-Utx" secondAttribute="trailing" id="LG9-Pa-Q5w"/>
+                            <constraint firstAttribute="bottom" secondItem="GUi-u9-Utx" secondAttribute="bottom" id="SR8-d2-PfC"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Uw4-Hu-FRa" secondAttribute="bottom" id="L0U-JU-iiP"/>
+                    <constraint firstAttribute="trailing" secondItem="Uw4-Hu-FRa" secondAttribute="trailing" id="R9B-mg-FYP"/>
+                    <constraint firstItem="Uw4-Hu-FRa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="esx-1q-LNa"/>
+                    <constraint firstItem="Uw4-Hu-FRa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jQQ-DI-tFw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="IVFoto" destination="Q17-GR-mf7" id="DeO-2R-h4M"/>
+                <outlet property="LBNombre" destination="qwH-KX-O46" id="7xT-wg-1Mp"/>
+                <outlet property="LBTelefono" destination="vEv-HB-yAm" id="GiH-d5-4li"/>
+            </connections>
+            <point key="canvasLocation" x="203.62318840579712" y="109.15178571428571"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="person" catalog="system" width="128" height="117"/>
+    </resources>
+</document>
