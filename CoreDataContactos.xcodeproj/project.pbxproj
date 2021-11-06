@@ -17,6 +17,7 @@
 		284607BC27306832007001CB /* EditarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284607BB27306832007001CB /* EditarViewController.swift */; };
 		284607C027307AC9007001CB /* ContactoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284607BE27307AC9007001CB /* ContactoTableViewCell.swift */; };
 		284607C127307AC9007001CB /* ContactoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 284607BF27307AC9007001CB /* ContactoTableViewCell.xib */; };
+		286581A42734FDE000D871CB /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286581A32734FDE000D871CB /* Database.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		284607BB27306832007001CB /* EditarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditarViewController.swift; sourceTree = "<group>"; };
 		284607BE27307AC9007001CB /* ContactoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactoTableViewCell.swift; sourceTree = "<group>"; };
 		284607BF27307AC9007001CB /* ContactoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactoTableViewCell.xib; sourceTree = "<group>"; };
+		286581A32734FDE000D871CB /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				284607BB27306832007001CB /* EditarViewController.swift */,
 				284607BE27307AC9007001CB /* ContactoTableViewCell.swift */,
 				284607BF27307AC9007001CB /* ContactoTableViewCell.xib */,
+				286581A32734FDE000D871CB /* Database.swift */,
 			);
 			path = CoreDataContactos;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 				284607A42730538C007001CB /* AppDelegate.swift in Sources */,
 				284607A62730538C007001CB /* SceneDelegate.swift in Sources */,
 				284607C027307AC9007001CB /* ContactoTableViewCell.swift in Sources */,
+				286581A42734FDE000D871CB /* Database.swift in Sources */,
 				284607AE2730538C007001CB /* CoreDataContactos.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

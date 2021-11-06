@@ -8,9 +8,15 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    var myImage: UIImage? = nil
     
     var contactos = [Contactos]()
+    
+    var indice:Int = 0
+    
+    var data:Data?
     
     //MARK: - Conexion a la base de datos
     let contexto = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -25,6 +31,8 @@ class ViewController: UIViewController {
         tablaContactos.dataSource = self
         
         tablaContactos.register(UINib(nibName: "ContactoTableViewCell", bundle: nil), forCellReuseIdentifier: "celda")
+        
+        tablaContactos.reloadData()
     }
 
     @IBAction func BtnAgregarContacto(_ sender: UIBarButtonItem) {
@@ -50,6 +58,7 @@ class ViewController: UIViewController {
             self.tablaContactos.reloadData()
         }
         
+        
         let cancelar = UIAlertAction(title: "Cancelar", style: .destructive, handler: nil)
         
         alerta.addAction(aceptar)
@@ -73,6 +82,9 @@ class ViewController: UIViewController {
     
     //MARK: - Metodo guardar en la BD
     func guardar(){
+        let objetoFoto = NSEntityDescription.insertNewObject(forEntityName: "Contactos", into: self.contexto) as! Contactos
+        objetoFoto.foto = self.myImage?.jpegData(compressionQuality: 1) as Data?
+        
         do {
             try contexto.save()
         } catch let error as NSError {
@@ -91,6 +103,24 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    func buscarFoto(contacto: Contactos){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = false
+        picker.sourceType = .photoLibrary
+        present(picker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let contactoFoto = Contactos(context: self.contexto)
+        if let imagenEscogida = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            myImage = imagenEscogida
+            dismiss(animated: true, completion: nil)
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource{
@@ -101,20 +131,32 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let celda = tablaContactos.dequeueReusableCell(withIdentifier: "celda", for: indexPath) as! ContactoTableViewCell
+        
+        let ImgDefault = UIImage(named: "person")
+        
         celda.LBNombre?.text = contactos[indexPath.row].nombre
         celda.LBTelefono?.text = contactos[indexPath.row].telefono
+        
+        if contactos[indexPath.row].foto != nil{
+            celda.IVFoto?.image =  UIImage(data: contactos[indexPath.row].foto!)
+        }else{
+            celda.IVFoto?.image = UIImage(named: "person")
+        }
         
         return celda
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        indice = indexPath.row
         performSegue(withIdentifier: "DetalleSegue", sender: nil)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetalleSegue"{
             let destino = segue.destination as! EditarViewController
-            //destino.TFNombre = 
+            destino.recibirContacto = contactos[indice]
+            
         }
     }
     //MARK: - Opcion eliminar en la tabla
